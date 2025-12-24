@@ -1,7 +1,5 @@
 ﻿namespace TaskMasterAPI.Enum
 {
-    public class UserTaskEnum
-    {
         public enum TaskPriorityEnum
         {
             Low = 1,
@@ -15,5 +13,4 @@
             InProgress = 2,
             Completed = 3,
         }
-    }
 }

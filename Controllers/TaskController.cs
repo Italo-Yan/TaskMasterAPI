@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TaskMasterAPI.Entity;
+using TaskMasterAPI.Enum;
 using TaskMasterAPI.Model;
 
 namespace TaskMasterAPI.Controllers
@@ -38,9 +39,14 @@ namespace TaskMasterAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllTasks()
+        public IActionResult GetAllTasks([FromQuery] TaskPriorityEnum? priority)
         {
-            return Ok(_tasks);
+            var result = _tasks.AsQueryable();
+            if(priority.HasValue)
+            {
+                result = result.Where(t => t.Priority == priority.Value);
+            }
+            return Ok(result.ToList());
         }
 
         [HttpGet("{id}")]

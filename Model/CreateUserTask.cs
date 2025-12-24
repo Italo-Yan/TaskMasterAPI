@@ -1,4 +1,4 @@
-﻿using static TaskMasterAPI.Enum.UserTaskEnum;
+﻿using TaskMasterAPI.Enum;
 
 namespace TaskMasterAPI.Model
 {
